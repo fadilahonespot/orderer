@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "f7f95295-cde2-4777-8186-20a4138586e8",
+		"name": "Ordered",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10350858"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orderedAt\": \"2024-03-27T03:22:37+00:00\",\n    \"customerName\": \"fadilah\",\n    \"items\": [\n        {\n            \"itemCode\": \"2345ty\",\n            \"description\": \"ini adalah sebuah kode kimia\",\n            \"quantity\": 1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2351/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "2351",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderedAt\": \"2024-03-27T03:22:37+00:00\",\n    \"customerName\": \"fadilah\",\n    \"items\": [\n        {\n            \"itemCode\": \"2345ty\",\n            \"description\": \"ini adalah sebuah kode kimia\",\n            \"quantity\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2351/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "2351",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Mar 2024 22:43:01 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "206"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"success create order\",\n    \"data\": {\n        \"orderedAt\": \"2024-03-27T03:22:37Z\",\n        \"customerName\": \"fadilah\",\n        \"items\": [\n            {\n                \"itemCode\": \"2345ty\",\n                \"description\": \"ini adalah sebuah kode kimia\",\n                \"quantity\": 1\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"orderedAt\": \"2024-03-27T03:22:37+00:00\",\n    \"customerName\": \"fadilah\",\n    \"items\": [\n        {\n            \"itemCode\": \"Mie Sedap Goreng\",\n            \"description\": \"ini adalah sebuah kode kimia\",\n            \"quantity\": 1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2351/orders/:orderId",
+					"host": [
+						"localhost"
+					],
+					"port": "2351",
+					"path": [
+						"orders",
+						":orderId"
+					],
+					"variable": [
+						{
+							"key": "orderId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"orderedAt\": \"2024-03-27T03:22:37+00:00\",\n    \"customerName\": \"fadilah\",\n    \"items\": [\n        {\n            \"itemCode\": \"Mie Sedap Goreng\",\n            \"description\": \"ini adalah sebuah kode kimia\",\n            \"quantity\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2351/orders/:orderId",
+							"host": [
+								"localhost"
+							],
+							"port": "2351",
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Mar 2024 22:46:40 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "216"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"success create order\",\n    \"data\": {\n        \"orderedAt\": \"2024-03-27T03:22:37Z\",\n        \"customerName\": \"fadilah\",\n        \"items\": [\n            {\n                \"itemCode\": \"Mie Sedap Goreng\",\n                \"description\": \"ini adalah sebuah kode kimia\",\n                \"quantity\": 1\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2351/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "2351",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Order",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:2351/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "2351",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Mar 2024 22:48:45 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "509"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"success create order\",\n    \"data\": [\n        {\n            \"ID\": 2,\n            \"CustomerName\": \"fadilah\",\n            \"OrderedAt\": \"2024-03-27T10:22:37+07:00\",\n            \"Items\": []\n        },\n        {\n            \"ID\": 3,\n            \"CustomerName\": \"fadilah\",\n            \"OrderedAt\": \"2024-03-27T10:22:37+07:00\",\n            \"Items\": [\n                {\n                    \"ID\": 2,\n                    \"Code\": \"Mie Sedap Goreng\",\n                    \"Description\": \"ini adalah sebuah kode kimia\",\n                    \"Quantity\": 1,\n                    \"OrderID\": 3\n                }\n            ]\n        },\n        {\n            \"ID\": 4,\n            \"CustomerName\": \"fadilah\",\n            \"OrderedAt\": \"2024-03-27T10:22:37+07:00\",\n            \"Items\": [\n                {\n                    \"ID\": 3,\n                    \"Code\": \"2345ty\",\n                    \"Description\": \"ini adalah sebuah kode kimia\",\n                    \"Quantity\": 1,\n                    \"OrderID\": 4\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Order",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:2351/orders/:orderId",
+					"host": [
+						"localhost"
+					],
+					"port": "2351",
+					"path": [
+						"orders",
+						":orderId"
+					],
+					"variable": [
+						{
+							"key": "orderId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:2351/orders/:orderId",
+							"host": [
+								"localhost"
+							],
+							"port": "2351",
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Mar 2024 22:52:05 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"success delete order\"\n}"
+				}
+			]
+		}
+	]
+}
