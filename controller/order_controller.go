@@ -5,6 +5,7 @@ import (
 
 	"github.com/fadilahonespot/orderer/entity"
 	"github.com/gin-gonic/gin"
+	"github.com/spf13/cast"
 	"gorm.io/gorm"
 )
 
@@ -44,7 +45,7 @@ func (s *defaultOrder) CreateOrder(c *gin.Context) {
 		})
 	}
 
-	err := s.db.Create(dataOrder).Error
+	err := s.db.Create(&dataOrder).Error
 	if err != nil {
 		response := generateResponseError(http.StatusInternalServerError, "failed create order")
 		c.JSON(http.StatusInternalServerError, response)
@@ -57,7 +58,7 @@ func (s *defaultOrder) CreateOrder(c *gin.Context) {
 
 func (s *defaultOrder) GetOrder(c *gin.Context) {
 	var orders []entity.Order
-	err := s.db.Preload("Items").Find(&orders)
+	err := s.db.Preload("Items").Find(&orders).Error
 	if err != nil {
 		response := generateResponseError(http.StatusInternalServerError, "failed get order")
 		c.JSON(http.StatusInternalServerError, response)
@@ -94,6 +95,7 @@ func (s *defaultOrder) UpdateOrder(c *gin.Context) {
 	}
 
 	dataOrder := entity.Order{
+		ID:           cast.ToInt(orderId),
 		CustomerName: req.CustomerName,
 		OrderedAt:    req.OrderedAt,
 	}
@@ -106,7 +108,7 @@ func (s *defaultOrder) UpdateOrder(c *gin.Context) {
 		})
 	}
 
-	err = tx.Save(dataOrder).Error
+	err = tx.Save(&dataOrder).Error
 	if err != nil {
 		tx.Rollback()
 		response := generateResponseError(http.StatusInternalServerError, "failed update order")
@@ -137,7 +139,7 @@ func (s *defaultOrder) DeleteOrder(c *gin.Context) {
 		return
 	}
 
-	err = tx.Delete(&entity.Order{}, "order_id = ?", orderId).Error
+	err = tx.Delete(&entity.Order{}, "id = ?", orderId).Error
 	if err != nil {
 		tx.Rollback()
 		response := generateResponseError(http.StatusNotFound, "failed delete items")

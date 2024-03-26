@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/fadilahonespot/orderer/controller"
 	"github.com/fadilahonespot/orderer/pkg/database"
 	"github.com/gin-gonic/gin"
@@ -18,4 +21,6 @@ func main() {
 	router.GET("/orders", orderController.GetOrder)
 	router.PUT("/orders/:orderId", orderController.UpdateOrder)
 	router.DELETE("/orders/:orderId", orderController.DeleteOrder)
+
+	router.Run(fmt.Sprintf(":%v", os.Getenv("PORT")))
 }

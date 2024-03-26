@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/fadilahonespot/mygram/entity"
+	"github.com/fadilahonespot/orderer/entity"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -30,10 +30,8 @@ func ConnectDB() *gorm.DB {
 	}
 
 	db.AutoMigrate(
-		&entity.User{},
-		&entity.Photo{},
-		&entity.Comment{},
-		&entity.SocialMedia{},
+		&entity.Order{},
+		&entity.Item{},
 	)
 
 	return db
