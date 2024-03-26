@@ -30,6 +30,7 @@ func ConnectDB() *gorm.DB {
 	}
 
 	db.AutoMigrate(
+		&entity.User{},
 		&entity.Order{},
 		&entity.Item{},
 	)

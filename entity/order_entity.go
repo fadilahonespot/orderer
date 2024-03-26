@@ -6,7 +6,9 @@ type Order struct {
 	ID           int `gorm:"primaryKey"`
 	CustomerName string
 	OrderedAt    time.Time
-	Items        []Item 
+	UserID       int
+	User         User
+	Items        []Item
 }
 
 type Item struct {
